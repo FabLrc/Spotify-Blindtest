@@ -2,7 +2,7 @@ const express = require("express");
 const request = require("request");
 const dotenv = require("dotenv");
 
-const port = 5000;
+const port = process.env.PORT || 3000;
 
 global.access_token = "";
 
@@ -78,5 +78,5 @@ app.get("/auth/token", (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Listening at ${env.PUBLIC_RL}:${env.PORT}`);
+  console.log(`Listening at ${process.env.PUBLIC_RL}:${process.env.PORT}`);
 });
