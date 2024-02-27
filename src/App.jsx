@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import WebPlayback from "./components/WebPlayback";
-import Login from "./Login";
+import Login from "./components/Login";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Navbar from "./components/Navbar";
 import "./App.css";
 
 function App() {
@@ -16,7 +18,12 @@ function App() {
     getToken();
   }, []);
 
-  return <>{token === "" ? <Login /> : <WebPlayback token={token} />}</>;
+  return (
+    <>
+      <Navbar token={token} setToken={setToken} />
+      {token === "" ? <Login /> : <WebPlayback token={token} />}
+    </>
+  );
 }
 
 export default App;

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import vignette from "../Medias/vignette.webp";
 
 const track = {
   name: "",
@@ -63,7 +64,7 @@ function WebPlayback(props) {
       <>
         <div className="container">
           <div className="main-wrapper">
-            <b> Instance non active. Active le via l'application Spotify !</b>
+            <b> Instance non active. Active la via l'application Spotify !</b>
           </div>
         </div>
       </>
@@ -71,101 +72,67 @@ function WebPlayback(props) {
   } else {
     return (
       <>
-        {show ? (
-          <div className="container">
-            <div className="main-wrapper">
+        <div className="container">
+          <div className="main-wrapper">
+            {show ? (
               <img
                 src={current_track.album.images[0].url}
                 className="now-playing__cover"
                 alt=""
               />
+            ) : (
+              <img src={vignette} className="now-playing__cover" alt="" />
+            )}
 
-              <div className="now-playing__side">
-                <div className="now-playing__name">{current_track.name}</div>
-                <div className="now-playing__artist">
-                  {current_track.artists[0].name}
-                </div>
-
-                <button
-                  className="btn-spotify"
-                  onClick={() => {
-                    player.previousTrack();
-                    setShow(false);
-                  }}
-                >
-                  &lt;&lt;
-                </button>
-
-                <button
-                  className="btn-spotify"
-                  onClick={() => {
-                    player.togglePlay();
-                  }}
-                >
-                  {is_paused ? "PLAY" : "PAUSE"}
-                </button>
-
-                <button
-                  className="btn-spotify"
-                  onClick={() => {
-                    player.nextTrack();
-                    setShow(false);
-                  }}
-                >
-                  &gt;&gt;
-                </button>
-                <button
-                  className="btn-spotify"
-                  onClick={() => {
-                    setShow(false);
-                  }}
-                >
-                  CACHER
-                </button>
+            <div className="now-playing__side">
+              <div className="now-playing__name">
+                {show ? current_track.name : "Titre inconnu"}
               </div>
-            </div>
-          </div>
-        ) : (
-          <div className="container">
-            <div className="main-wrapper">
+              <div className="now-playing__artist">
+                {show ? current_track.artists[0].name : "Artiste inconnu"}
+              </div>
+
               <button
-                className="btn-spotify"
+                className="btn btn-primary"
                 onClick={() => {
                   player.previousTrack();
+                  setShow(false);
                 }}
               >
                 &lt;&lt;
               </button>
+
               <button
-                className="btn-spotify"
-                onClick={() => {
-                  setShow(true);
-                }}
-              >
-                Voir le titre
-              </button>
-              <button
-                className="btn-spotify"
-                onClick={() => {
-                  player.nextTrack();
-                }}
-              >
-                &gt;&gt;
-              </button>
-              <button
-                className="btn-spotify"
+                className="btn btn-primary"
                 onClick={() => {
                   player.togglePlay();
                 }}
               >
                 {is_paused ? "PLAY" : "PAUSE"}
               </button>
+
+              <button
+                className="btn btn-primary"
+                onClick={() => {
+                  player.nextTrack();
+                  setShow(false);
+                }}
+              >
+                &gt;&gt;
+              </button>
+              <button
+                className="btn btn-primary"
+                onClick={() => {
+                  show ? setShow(false) : setShow(true);
+                }}
+              >
+                {show ? "Cacher" : "Afficher"}
+              </button>
             </div>
           </div>
-        )}
+        </div>
       </>
     );
   }
 }
-
 export default WebPlayback;
