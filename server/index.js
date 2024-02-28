@@ -78,5 +78,5 @@ app.get("/auth/token", (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Listening at ${process.env.PUBLIC_RL}:${process.env.PORT}`);
+  console.log(`Listening at ${process.env.PUBLIC_URL}:${process.env.PORT}`);
 });
