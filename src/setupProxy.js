@@ -5,6 +5,8 @@ module.exports = function (app) {
     "/auth/**",
     createProxyMiddleware({
       target: `${process.env.PUBLIC_URL}:${process.env.PORT}`,
+      changeOrigin: true,
+      secure: false,
     })
   );
 };

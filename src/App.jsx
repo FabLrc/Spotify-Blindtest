@@ -22,6 +22,10 @@ function App() {
     <>
       <Navbar token={token} setToken={setToken} />
       {token === "" ? <Login /> : <WebPlayback token={token} />}
+      <h1>
+        Les variables sont :{" "}
+        {`${process.env.REACT_APP_PUBLIC_URL}:${process.env.REACT_APP_PORT}`}
+      </h1>
     </>
   );
 }
