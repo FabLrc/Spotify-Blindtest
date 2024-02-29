@@ -4,7 +4,7 @@ module.exports = function (app) {
   app.use(
     "/auth/**",
     createProxyMiddleware({
-      target: `${process.env.PUBLIC_URL}:5000`,
+      target: `http://localhost:5000`,
     })
   );
 };
