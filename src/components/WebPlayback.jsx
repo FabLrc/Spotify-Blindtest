@@ -79,7 +79,7 @@ function WebPlayback(props) {
     return (
       <>
         <div className="container">
-          <div className="main-wrapper">
+          <div className="main-wrapper p-5 bg-gray">
             {show ? (
               <img
                 src={current_track.album.images[0].url}
@@ -134,6 +134,21 @@ function WebPlayback(props) {
               >
                 {show ? "Cacher" : "Afficher"}
               </button>
+              <br />
+              <label htmlFor="volume" className="form-label mt-3">
+                Volume
+              </label>
+              <input
+                type="range"
+                id="volume"
+                className="form-range"
+                min="0"
+                max="1"
+                step="0.01"
+                onChange={(e) => {
+                  player.setVolume(e.target.value);
+                }}
+              />
             </div>
           </div>
         </div>
