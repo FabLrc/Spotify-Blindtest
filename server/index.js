@@ -2,7 +2,7 @@ const express = require("express");
 const request = require("request");
 const dotenv = require("dotenv");
 
-const port = 3000;
+const port = 5000;
 
 global.access_token = "";
 
@@ -78,5 +78,5 @@ app.get("/auth/token", (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Listening at http://localhost:${port}`);
+  console.log(`Listening at http://localhost:3000`);
 });
