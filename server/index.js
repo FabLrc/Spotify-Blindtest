@@ -2,7 +2,7 @@ const express = require("express");
 const request = require("request");
 const dotenv = require("dotenv");
 
-const port = process.env.PORT;
+const port = 3000;
 
 global.access_token = "";
 
@@ -11,7 +11,7 @@ dotenv.config();
 var spotify_client_id = process.env.SPOTIFY_CLIENT_ID;
 var spotify_client_secret = process.env.SPOTIFY_CLIENT_SECRET;
 
-var spotify_redirect_uri = `${env.PUBLIC_URL}:${env.PORT}/auth/callback`;
+var spotify_redirect_uri = "http://localhost:3000/auth/callback";
 
 var generateRandomString = function (length) {
   var text = "";
@@ -78,5 +78,5 @@ app.get("/auth/token", (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Listening at ${process.env.PUBLIC_URL}:${process.env.PORT}`);
+  console.log(`Listening at http://localhost:${port}`);
 });

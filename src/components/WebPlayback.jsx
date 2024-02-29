@@ -25,7 +25,7 @@ function WebPlayback(props) {
 
     window.onSpotifyWebPlaybackSDKReady = () => {
       const player = new window.Spotify.Player({
-        name: "Web Playback SDK",
+        name: "Le Blindtesteur fou",
         getOAuthToken: (cb) => {
           cb(props.token);
         },
@@ -55,7 +55,13 @@ function WebPlayback(props) {
         });
       });
 
-      player.connect();
+      player.connect().then((success) => {
+        if (success) {
+          console.log(
+            "The Web Playback SDK successfully connected to Spotify!"
+          );
+        }
+      });
     };
   }, []);
 
