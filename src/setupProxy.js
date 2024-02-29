@@ -4,7 +4,7 @@ module.exports = function (app) {
   app.use(
     "/auth/**",
     createProxyMiddleware({
-      target: `${process.env.REACT_APP_SERVER_URL}:${process.env.REACT_APP_SERVER_PORT}`,
+      target: `${process.env.REACT_APP_SERVER_URL}`,
       changeOrigin: true,
     })
   );
