@@ -5,6 +5,7 @@ module.exports = function (app) {
     "/auth/**",
     createProxyMiddleware({
       target: `${process.env.REACT_APP_SERVER_URL}`,
+      changeOrigin: true,
     })
   );
 };
