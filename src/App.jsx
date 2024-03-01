@@ -4,6 +4,7 @@ import Login from "./components/Login";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "./components/Navbar";
 import "./App.css";
+import Background from "./components/Background";
 
 function App() {
   const [token, setToken] = useState("");
@@ -20,6 +21,7 @@ function App() {
 
   return (
     <>
+      <Background />
       <Navbar token={token} setToken={setToken} />
       {token === "" ? <Login /> : <WebPlayback token={token} />}
     </>

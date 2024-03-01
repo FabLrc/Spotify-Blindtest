@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import vignette from "../Medias/vignette.webp";
+import Background from "./Background";
 
 const track = {
   name: "",
@@ -134,6 +135,7 @@ function WebPlayback(props) {
               >
                 {show ? "Cacher" : "Afficher"}
               </button>
+
               <br />
               <label htmlFor="volume" className="form-label mt-3">
                 Volume
